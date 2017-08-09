@@ -1,1 +1,1 @@
-# golang-practice-problems
+# go-practice-problems
