@@ -13,7 +13,7 @@ var count int
 
 func is_permutation(strarr2 []string) bool {
 	count = 0
-	for i := 0; i < cap(strarr2); i++ {
+	for i := 0; i < len(strarr2); i++ {
 		v, ok := m[strarr2[i]]
 		fmt.Println(strarr2[i], v)
 		if ok == false {
@@ -41,7 +41,7 @@ func main() {
 	//build a hash table for string1
 	m = make(map[string]int)
 	m[strarr1[0]] = 1
-	for i := 1; i < cap(strarr1); i++ {
+	for i := 1; i < len(strarr1); i++ {
 		v, ok := m[strarr1[i]]
 		if ok == false {
 			m[strarr1[i]] = 1
