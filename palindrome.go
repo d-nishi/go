@@ -7,8 +7,8 @@ import "strings"
 func palindrome_chk(a []string) string {
 
 	r := "true"
-	for i := 0; i < cap(a); i++ {
-		if a[i] != a[cap(a)-i-1] {
+	for i := 0; i < len(a); i++ {
+		if a[i] != a[len(a)-i-1] {
 			r = "false"
 			break
 		}
