@@ -418,13 +418,35 @@ Setting up RBAC on one EKS cluster is a long convoluted sequential process that 
 ## Testing the Pulumi approach worked:
 
 If you run `pulumi up` with this `index.ts` [file](https://gist.github.com/d-nishi/ab462ea779e0615f29e8cfbb668272d7).
-Assume the IAM role `AutomationRole` with access to all Kubernetes resources in namespace automation and test if the permissions work.
 
 ```
 $ pulumi stack output kubeconfig | jq > kubeconfig.yaml
 $ export KUBECONFIG = kubeconfig.yaml
-$ sed -i "s/
 ```
+
+Assume the IAM role `AutomationRole` with access to all Kubernetes resources in namespace automation and test if the permissions work.
+```
+  "users": [
+    {
+      "name": "aws",
+      "user": {
+        "exec": {
+          "apiVersion": "client.authentication.k8s.io/v1alpha1",
+          "args": [
+            "token",
+            "-i",
+            "eks-cluster-eksCluster-196b0de",
+            "-r",
+            "arn:aws:iam::153052954103:role/AutomationRole"
+          ],
+          "command": "aws-iam-authenticator"
+        }
+      }
+    }
+  ]
+}
+```
+If you run `kubectl get po --namespace=automation` you will get an output `No Resources Found` as we did not create any resources in this namespace.
 
 ## The Traditional-approach: Customer NIGHTMARES!
 
