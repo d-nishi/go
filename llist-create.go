@@ -43,12 +43,18 @@ func main() {
 
 	l := List{}
 
-	l.InsertBack("15")
-	l.InsertBack("15")
-	l.InsertBack("10")
-	l.InsertBack("10")
-	l.InsertBack("22")
-	l.InsertBack("10")
+	l.InsertBack("(")
+	l.InsertBack(")")
+	l.InsertBack("[")
+	l.InsertBack("{")
+	l.InsertBack("{")
+	l.InsertBack("{")
+	l.InsertBack("[")
+	l.InsertBack("]")
+	l.InsertBack("}")
+	l.InsertBack("}")
+	l.InsertBack("}")
+	l.InsertBack("]")
 
 	fmt.Printf("head: %v\n", l.head.value)
 	fmt.Printf("tail: %v\n", l.tail.value)

@@ -15,7 +15,7 @@ func main() {
 
 }
 
-func MergeKSortedArrs(k_sorted_arrs [][]int) []int {
+func MergeSortedArrs(k_sorted_arrs [][]int) []int {
 
 	k0 := &k_sorted_arrs[0]
 	k1 := &k_sorted_arrs[1]
