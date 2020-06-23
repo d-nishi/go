@@ -121,7 +121,7 @@ func main() {
 	nums := []int{3, 4, 8, 9, 10, 0, 5}
 
 	t := BinaryTree(nums)
-	t.Delete(4)
+	//t.Delete(4)
 
 	t.PrintInorder()
 }
